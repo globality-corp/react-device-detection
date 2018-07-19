@@ -18,4 +18,3 @@ import deviceDetection from 'react-device-detection';
 deviceDetection('mobile')(withRouter(MobileNav));
 
 ```
-....
