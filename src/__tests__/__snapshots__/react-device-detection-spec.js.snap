@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reactDeviceDetection should decorate wrapped component by props with requested in HOC config device/browser information 1`] = `
+<FakeComponent
+  isChrome={false}
+  isFirefox={false}
+  isIE={false}
+  isMobile={false}
+  otherProp={20}
+/>
+`;

@@ -1,0 +1,69 @@
+{
+  "name": "react-device-detection",
+  "version": "1.0.0",
+  "description": "A utility for uploading to cloudinary in a React app",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c",
+    "prettier": "prettier --write --config .prettierrc.js '{src,__{tests,mocks}__}/**/*.js'",
+    "validate": "yarn prettier && yarn lint --fix && yarn test && yarn build",
+    "clean": "rimraf dist",
+    "lint": "eslint ./src/**/*.js",
+    "test": "TZ=UTC jest .src --maxWorkers 4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.5",
+    "babel-jest": "^23.2.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-babel": "^5.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.9.1",
+    "jest": "^23.4.1",
+    "prettier": "^1.13.5",
+    "prop-types": "^15.6.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.1",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.61.2",
+    "rollup-plugin-babel": "^3.0.5",
+    "rollup-plugin-jsx": "^1.0.3"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.6.1",
+    "react": "^16.3.0 || ^15.5.4"
+  },
+  "jest": {
+    "globals": {
+      "DEBUG": false
+    },
+    "testEnvironment": "jsdom",
+    "transform": {
+      ".*": "<rootDir>/node_modules/babel-jest"
+    },
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/__stories__"
+    ],
+    "setupFiles": [
+      "<rootDir>/src/setupTests.js"
+    ]
+  }
+}
