@@ -1,7 +1,7 @@
 {
   "name": "react-device-detection",
   "version": "1.0.0",
-  "description": "A utility for uploading to cloudinary in a React app",
+  "description": "React HOC for device detection",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
