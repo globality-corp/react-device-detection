@@ -5,7 +5,7 @@ General HOC that will pass in boolean props such as isMobile or isFirefox for a 
 Install:
 
 ```bash
-yarn add @globality/gi-react-device-detection 
+yarn add react-device-detection 
 ```
 
 
