@@ -9,3 +9,10 @@ exports[`reactDeviceDetection should decorate wrapped component by props with re
   otherProp={20}
 />
 `;
+
+exports[`reactDeviceDetection should decorate wrapper component and pass only requested props 1`] = `
+<FakeComponent
+  isMobile={false}
+  otherProp={20}
+/>
+`;

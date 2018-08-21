@@ -23,6 +23,10 @@ export default function reactDeviceDetection (...config) {
 
         constructor () {
             super();
+            
+            const uaParser = Singleton.instance(UAParser);
+            const deviceData = uaParser.getDevice();
+            const browserData = uaParser.getBrowser();
 
             this.state = {
                 isChrome: false,
@@ -30,15 +34,17 @@ export default function reactDeviceDetection (...config) {
                 isMobile: false,
                 isFirefox: false,
                 config,
+                ...this.populateData({ deviceData, browserData })
             };
         }
-
-        componentDidMount () {
-            const uaParser = Singleton.instance(UAParser);
-            const deviceData = uaParser.getDevice();
-            const browserData = uaParser.getBrowser();
-
-            this.populateData({ deviceData, browserData });
+        
+        populateData ({ deviceData, browserData }) {
+            return {
+                isChrome: evaluate(browserData, CHROME_BROWSER),
+                isIE: evaluate(browserData, IE_BROWSER),
+                isMobile: evaluate(deviceData, MOBILE_DEVICE, 'type'),
+                isFirefox: evaluate(browserData, FIREFOX_BROWSER),
+            };
         }
 
         getInjections () {
@@ -48,15 +54,6 @@ export default function reactDeviceDetection (...config) {
                     [deviceToPropMap.get(device)]: this.state[deviceToPropMap.get(device)],
                 }))
                 .reduce((acc, curr) => ({ ...acc, ...curr }), {});
-        }
-
-        populateData ({ deviceData, browserData }) {
-            this.setState({
-                isChrome: evaluate(browserData, CHROME_BROWSER),
-                isIE: evaluate(browserData, IE_BROWSER),
-                isMobile: evaluate(deviceData, MOBILE_DEVICE, 'type'),
-                isFirefox: evaluate(browserData, FIREFOX_BROWSER),
-            });
         }
 
         render () {
