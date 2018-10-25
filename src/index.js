@@ -34,12 +34,16 @@ export default function reactDeviceDetection (...config) {
             };
 
             getInjections () {
-                return this.state.config
+                const injections = this.injections || this.state.config
                     .filter(arg => deviceTypes.some(type => arg === type))
                     .map(device => ({
                         [deviceToPropMap.get(device)]: this.state[deviceToPropMap.get(device)],
                     }))
                     .reduce((acc, curr) => ({ ...acc, ...curr }), {});
+
+                this.injections = injections;
+
+                return injections;
             }
 
             render () {
