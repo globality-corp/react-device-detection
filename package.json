@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "React HOC for device detection",
   "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/globality-corp/react-device-detection.git"
+  },
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
